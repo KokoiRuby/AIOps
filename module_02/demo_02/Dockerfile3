@@ -1,0 +1,19 @@
+FROM debian:latest
+
+
+
+RUN apt-get update
+
+RUN apt-get install python3 -y
+
+RUN apt-get instll wget -y
+
+
+
+WORKDIR /app
+
+COPY . .
+
+
+
+CMD ["python3", "app.py"]
