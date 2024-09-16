@@ -221,8 +221,8 @@ $ terraform workspace select dev
 3. **Module + Directory**
 
 - Module 是重用 Terraform 代码的主要方式，更好地组织和管理 IaC 源码，包括配置、微服务、人员角色。
-  - Root 包含所有工作目录下 .tf 文件，默认模块
-  - Sub 通过 .tf 文件引用的外部模块
+  - Root 包含所有工作目录下 `.tf` 文件，默认模块
+  - Sub 通过 `.tf` 文件引用的外部模块
     - Local
     - Terraform Registry
     - HTTP
@@ -235,7 +235,7 @@ $ terraform workspace select dev
   - 设置**输出**，作为下游的**输入**，便于和其他模块进一步集成
 
 ```bash
-├── modules
+├── modules           # re-usable
 │ ├── cvm
 │ │ ├── main.tf
 │ │ ├── outputs.tf

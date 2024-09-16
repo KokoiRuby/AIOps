@@ -1,16 +1,15 @@
 variable "secret_id" {
-  default = "your_secret"
+  default = "AKIDHmBtW9pgLXjt4KILF0Y4TdaK8tBtX0EE"
 }
 
 variable "secret_key" {
-  default = "your_secret"
+  default = "CTdYDmB3oKbpgP4PZWDnKiqmlY5SqF0Z"
 }
 
 variable "region" {
-  default = "ap-guangzhou"
+  default = "ap-hongkong"
 }
 
-# pwd for VM SSH login
 variable "password" {
   default = "password123"
 }

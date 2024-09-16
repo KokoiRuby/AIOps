@@ -1,5 +1,4 @@
 # Configure the TencentCloud Provider
-# Read from variables.tf
 provider "tencentcloud" {
   region     = var.region
   secret_id  = var.secret_id
@@ -19,7 +18,6 @@ data "tencentcloud_images" "default" {
 
 # Get availability instance types
 data "tencentcloud_instance_types" "default" {
-  # 机型族
   filter {
     name   = "instance-family"
     values = ["SA5"]
@@ -28,23 +26,6 @@ data "tencentcloud_instance_types" "default" {
   cpu_core_count = 2
   memory_size    = 4
   exclude_sold_out = true
-}
-
-# Create a web server
-resource "tencentcloud_instance" "web" {
-  depends_on                 = [tencentcloud_security_group_lite_rule.default]
-  count                      = 1
-  instance_name              = "web server"
-  availability_zone          = data.tencentcloud_availability_zones_by_product.default.zones.0.name
-  image_id                   = data.tencentcloud_images.default.images.0.image_id
-  instance_type              = data.tencentcloud_instance_types.default.instance_types.0.instance_type
-  system_disk_type           = "CLOUD_BSSD"
-  system_disk_size           = 50
-  allocate_public_ip         = true
-  internet_max_bandwidth_out = 100
-  instance_charge_type       = "SPOTPAID"
-  orderly_security_groups    = [tencentcloud_security_group.default.id]
-  password                   = var.password
 }
 
 # Create security group
@@ -64,4 +45,21 @@ resource "tencentcloud_security_group_lite_rule" "default" {
   egress = [
     "ACCEPT#0.0.0.0/0#ALL#ALL"
   ]
+}
+
+# Create a web server
+resource "tencentcloud_instance" "web" {
+  depends_on                 = [tencentcloud_security_group_lite_rule.default]
+  count                      = 1
+  instance_name              = "web server"
+  availability_zone          = data.tencentcloud_availability_zones_by_product.default.zones.0.name
+  image_id                   = data.tencentcloud_images.default.images.0.image_id
+  instance_type              = data.tencentcloud_instance_types.default.instance_types.0.instance_type
+  system_disk_type           = "CLOUD_BSSD"
+  system_disk_size           = 50
+  allocate_public_ip         = true
+  internet_max_bandwidth_out = 100
+  instance_charge_type       = "SPOTPAID"
+  orderly_security_groups    = [tencentcloud_security_group.default.id]
+  password                   = var.password
 }

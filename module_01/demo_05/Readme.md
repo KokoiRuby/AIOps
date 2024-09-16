@@ -1,5 +1,7 @@
 ### Module + Directory
 
+模块目录 + 环境目录
+
 ```bash
 $ tree
 .
