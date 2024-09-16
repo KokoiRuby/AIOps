@@ -1,9 +1,9 @@
 variable "secret_id" {
-  default = "AKIDHmBtW9pgLXjt4KILF0Y4TdaK8tBtX0EE"
+  default = "BLOCKED"
 }
 
 variable "secret_key" {
-  default = "CTdYDmB3oKbpgP4PZWDnKiqmlY5SqF0Z"
+  default = "BLOCKED"
 }
 
 variable "region" {
