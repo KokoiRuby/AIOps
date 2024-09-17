@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-install-job
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-5"
+spec:
+  template:
+    spec:
+      containers:
+      - name: pre-install-container
+        image: busybox
+        command: ["sh", "-c", "echo 'helm pre-install hook'"]
+      restartPolicy: Never
