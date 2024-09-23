@@ -23,8 +23,8 @@ $ docker logs -f ragflow-server
 Flow:
 
 1. 注册账号并登录
-2. 点击右上角头像，进入模型供应商设置
+2. 点击右上角头像，进入模型供应商设置 Model Providers
 3. 以 OpenAI 为例，点击添加模型，输入 Base URL 和 API KEY
-4. 返回首页，创建知识库，选择 Embedding 模型和文档解析方法
+4. 返回首页，创建知识库 Base Knowledge，选择 Embedding 模型和文档解析方法
 5. 上传文件，点击 “启动” 按钮进行 Embedding，等待处理完成
-6. 新建助理并基于知识库进行对话
+6. 新建助理 Assistant 并基于知识库进行对话
