@@ -20,7 +20,7 @@ func main() {
 	llm, err := openai.New(
 		openai.WithModel("gpt-4o-mini"),
 		openai.WithBaseURL("https://vip.apiyi.com/v1"),
-		openai.WithToken("sk-NUkr3DrnPJtiWZS32d667dAaCd304f20B43bAbF0D6872b21"),
+		openai.WithToken("BLOCKED"),
 	)
 	if err != nil {
 		log.Fatal(err)

@@ -17,7 +17,7 @@ func main() {
 
 	ctx := context.Background()
 
-	token := "sk-NUkr3DrnPJtiWZS32d667dAaCd304f20B43bAbF0D6872b21"
+	token := "BLOCKED"
 	config := openai.DefaultConfig(token)
 	config.BaseURL = "https://vip.apiyi.com/v1"
 	client := openai.NewClientWithConfig(config)

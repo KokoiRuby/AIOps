@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	token := "sk-NUkr3DrnPJtiWZS32d667dAaCd304f20B43bAbF0D6872b21"
+	token := "BLOCKED"
 	baseURL := "https://vip.apiyi.com/v1"
 	client := buildClient(token, baseURL)
 
