@@ -134,35 +134,41 @@ A fast [BPE](https://en.wikipedia.org/wiki/Byte_pair_encoding) tokeniser for use
 
 **注：模型回答效果并不会随着输入 Token 数量线性而提升。**
 
-### Prompt Engineering
+### [Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
 
-在使用生成式人工智能模型时，设计和优化 prompt 的过程，以便获得期望的输出。
+[Write clear instructions](https://platform.openai.com/docs/guides/prompt-engineering/write-clear-instructions) 明确告知模型应该怎么做
 
-实践：
+- 包含尽可能多地细节，避免让 Model 进行猜想
+- 让模型具备一个人格
+- 使用分隔符比如 """ XML <tag> 界定 Model 的输出内容
+- 指明需要完成一个任务的步骤 = Chain of Thoughts
+- 提供例子
+- 指明输出的长度
 
-- 给出具体的描述，避免说“不要做什么”，而是具体说明“要做什么” = DOs > DONT'S
-- 对重要事项进行排序
-- 标准的格式
-- 拆解任务，给出思路
+[Provide reference text](https://platform.openai.com/docs/guides/prompt-engineering/provide-reference-text) 提供参考性的文本
 
-#### vs.
+- 告诉 Model 借助参考文档来回答
+- 告诉 Model 使用参考文档中的引用来回答
 
-**Zero-shot 零样本学习**：模型要求在没有关于特定任务的训练样本的情况下进行学习和推理。
+[Split complex tasks into simpler subtasks](https://platform.openai.com/docs/guides/prompt-engineering/split-complex-tasks-into-simpler-subtasks) 分解复杂任务成简单子任务
 
-**Few-shot 小样本学习**：模型只使用非常有限的训练样本来学习。（推荐）
+- 对用户的 query 使用带意图的分类来标识最相关的指令
+- 对于长对话的应用，总结 or 过滤之前的对话内容
+- 分片总结长文档，递归构建总结
 
-#### CoT
+[Give the model time to "think"](https://platform.openai.com/docs/guides/prompt-engineering/give-the-model-time-to-think) 给予模型足够的时间思考
 
-**Chain of Thought 思维链**：让模型做出一步一步的思考，生成更具备解释性的答案，提高问题的准确率。对 `*-shot` 均有效。
+- 先让 Model 判断 solution 是否正确，再去计算
+- 使用内独白 or 查询序列来隐藏模型的推理过程 step1/2/3...
+- 询问 Model 是否遗漏了之前的内容
 
-#### Generated Knowledge Prompting
+[Use external tools](https://platform.openai.com/docs/guides/prompt-engineering/use-external-tools) 使用外部工具
 
-生成式知识提示：在上下文中提供额外的知识来改善推理结果，比如把专家知识库的内容放在 system prompt 中进行回答。
+- 使用基于 Embedding 的搜索实现高效的知识获取
+- 使用代码执行去实施更准确的计算 or 外部 API 调用
+- 让 Model 访问具体的函数 function calling
 
-#### Slice
+[Test changes systematically](https://platform.openai.com/docs/guides/prompt-engineering/test-changes-systematically) 系统性测试变化
 
-分片：对于超出 ctxt window 的部分，先分片总结，再对各分片的总结进行总结。
-
-#### Program-aided
-
-LLM 生成程序并运行得出结果。
+- [OpenAI Evals](https://github.com/openai/evals)
+- 参加黄金标准答案评估 Model 输出

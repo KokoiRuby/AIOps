@@ -246,10 +246,10 @@ $ terraform workspace select dev
 │ ├── outputs.tf
 │ └── variables.tf
 └── testing            # test env
-│ ├── main.tf
+│ ├── main.tf          # ref modules
 │ └── variables.tf
 ├── dev                # dev env
-│ ├── main.tf
+│ ├── main.tf          # ref modules
 │ └── variables.tf
 ```
 

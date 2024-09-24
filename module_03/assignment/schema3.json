@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "resType": {
+            "description": "Resource type.",
+            "type": "string"
+        },
+        "image": {
+            "description": "Image name.",
+            "type": "string"
+        }
+    }
+}

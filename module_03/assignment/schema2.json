@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "svcName": {
+            "description": "Service name.",
+            "type": "string"
+        }
+    }
+
+}

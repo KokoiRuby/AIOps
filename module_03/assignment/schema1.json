@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "svcName": {
+            "description": "Service name.",
+            "type": "string"
+        },
+        "key": {
+            "description": "Service configuration key.",
+            "type": "string"
+        },
+        "value": {
+            "description": "Service configuration value.",
+            "type": "string"
+        }
+    },
+    "required": ["svcName", "key", "value"]
+}
