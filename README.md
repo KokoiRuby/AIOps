@@ -20,3 +20,13 @@
 - RAG
 - Ollama
 
+#### Module_04
+
+- Agent
+- Translation Agent
+- LangGraph/LangSmith
+- Self-reflective RAG/Tavily/Coze
+
+#### Module_05
+
+- Client-go

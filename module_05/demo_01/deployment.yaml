@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-1
+  name: demo-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: demo-1
+    spec:
+      containers:
+        # from kind cluster
+        - image: docker.io/library/module_05_demo_01:latest
+          name: module-05-demo-01
+          imagePullPolicy: Never
